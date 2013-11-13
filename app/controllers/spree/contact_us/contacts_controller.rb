@@ -5,7 +5,7 @@ class Spree::ContactUs::ContactsController < Spree::StoreController
     @contact = Spree::ContactUs::Contact.new(params[:contact_us_contact])
 
     if @contact.save
-      if Spree::ContactUs::Config.contact_tracking_message.present? and verify_recaptcha()
+      if Spree::ContactUs::Config.contact_tracking_message.present?
         flash[:contact_tracking] = Spree::ContactUs::Config.contact_tracking_message
       end
       redirect_to(spree.root_path, :notice => t('spree.contact_us.notices.success'))
@@ -21,7 +21,7 @@ class Spree::ContactUs::ContactsController < Spree::StoreController
   private
 
   def accurate_title
-    t('spree.contact_us.contacts.new.contact_us')
+    t('contact_us')
   end
 
 end
