@@ -5,11 +5,12 @@ module Spree
       include ActiveModel::Conversion
       include ActiveModel::Validations
 
-      attr_accessor :email, :message, :name, :subject
+      attr_accessor :email, :message, :name, :subject, :last_name
 
       validates :email,   :format => { :with => /@/i },
                           :presence => true
       validates :message, :presence => true
+      validates :last_name, :presence => false
       validates :name,    :presence => {:if => Proc.new{SpreeContactUs.require_name}}
       validates :subject, :presence => {:if => Proc.new{SpreeContactUs.require_subject}}
 
