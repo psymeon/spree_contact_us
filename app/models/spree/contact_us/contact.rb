@@ -10,7 +10,7 @@ module Spree
       validates :email,   :format => { :with => /@/i },
                           :presence => true
       validates :message, :presence => true
-      validates :last_name, :length => {:is => 0 }
+      validates :last_name, :no_presence => true
       validates :name,    :presence => {:if => Proc.new{SpreeContactUs.require_name}}
       validates :subject, :presence => {:if => Proc.new{SpreeContactUs.require_subject}}
 
