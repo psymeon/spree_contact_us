@@ -21,6 +21,10 @@
       <%= f.text_field :name, class: 'required' %>
     </p>
   <% end %>
+  <p style="display: none; visibility: hidden; height: 0px; overflow: hidden;">
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name, tabindex: '-1' %>
+  </p>
   <p>
     <%= f.label :email %>
     <span class="required">*</span><br/>
