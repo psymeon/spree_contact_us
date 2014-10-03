@@ -4,7 +4,7 @@ class Spree::ContactUs::ContactsController < Spree::StoreController
   def create
     @contact = Spree::ContactUs::Contact.new(params[:contact_us_contact])
 
-    if @contact.save
+    if @contact.save and @contact.last_name.empty?
       if Spree::ContactUs::Config.contact_tracking_message.present?
         flash[:contact_tracking] = Spree::ContactUs::Config.contact_tracking_message
       end
