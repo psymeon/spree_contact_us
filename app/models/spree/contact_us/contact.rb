@@ -20,7 +20,7 @@ module Spree
       end
 
       def save
-        if self.valid? and (self.last_name.nil? or self.last_name.empty?)
+        if self.valid?
           Spree::ContactUs::ContactMailer.contact_email(self).deliver
           return true
         end
